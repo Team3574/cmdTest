@@ -37,16 +37,16 @@ public class MotorTest extends Subsystem {
         victorTest.set (speed);
         talonTest.set (speed); 
         
-//        if (speed > -0.5 && speed < 0.5){
-//            spikeTest.set (Relay.Value.kOff);
-//        }
-//        else if (speed >= 0.5){
-//             spikeTest.set (Relay.Value.kForward);
-//             spikeTest.set(Relay.Value.kOn);
-//        }
-//        else if (speed <= -0.5){
-//             spikeTest.set (Relay.Value.kReverse);
-//             spikeTest.set(Relay.Value.kOn);
-//        }
+        if (speed > -0.5 && speed < 0.5){
+            spikeTest.set (Relay.Value.kOff);
+        }
+        else if (speed >= 0.5){
+             spikeTest.set(Relay.Value.kOn);
+             spikeTest.set (Relay.Value.kForward);
+        }
+        else if (speed <= -0.5){
+             spikeTest.set(Relay.Value.kOn);
+             spikeTest.set (Relay.Value.kReverse);
+        }
     }
 }

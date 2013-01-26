@@ -4,6 +4,7 @@
  */
 package edu.wpi.first.cmdTest.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Scheduler;
 
 /**
@@ -15,7 +16,7 @@ public class NotKickinItOldschool extends CommandBase {
     public NotKickinItOldschool() {
         // Use requires() here to declare subsystem dependencies
          requires(thePneumatics);
-         System.out.println(thePneumatics.buttonState());
+         System.out.println("buttonState " + thePneumatics.buttonState());
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +29,10 @@ public class NotKickinItOldschool extends CommandBase {
         if (thePneumatics.buttonState()){
             Scheduler sched = Scheduler.getInstance();
             sched.add (new KickinItOldSchool());
+           
         }
+        
+      
     }
 
     // Make this return true when this Command no longer needs to run execute()

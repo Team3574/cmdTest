@@ -7,7 +7,6 @@ package edu.wpi.first.cmdTest.subsystems;
 import edu.wpi.first.cmdTest.RobotMap;
 import edu.wpi.first.cmdTest.commands.KickinItOldSchool;
 import edu.wpi.first.cmdTest.commands.NotKickinItOldschool;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -21,11 +20,15 @@ public class Pneumatics extends Subsystem {
     // here. Call these from Commands.
 
     public Solenoid kicker = new Solenoid(RobotMap.kickerPort);
-    public Compressor comp = new Compressor(RobotMap.compressorSaftyPort, RobotMap.compressorPort);
+    
     public DigitalInput button = new DigitalInput(RobotMap.buttonPort);
+    
+        
+    
+    
 
     public Pneumatics() {
-        comp.start(); 
+        
     }   
             
     public void initDefaultCommand() {        

@@ -9,27 +9,30 @@ package team.util;
  * @author team3574
  */
 public class MotorScaler {
-    double lastInput, maxChange;
+    double lastSpeed, maxChange;
     
     public MotorScaler(){
-        lastInput = 0.0;
-        maxChange = 0.02;
+        lastSpeed = 0.0;
+        maxChange = 0.05;
     }
     public MotorScaler(double _maxChange){
-        lastInput = 0.0;
+        lastSpeed = 0.0;
         maxChange = _maxChange;
     }
     
     public double scale(double input){
-        double newSpeed;
-        if (input - lastInput > 0){
-            newSpeed = lastInput + maxChange;
-            lastInput = newSpeed;
+        double newSpeed = 0;
+        if (input < 0.05 && input > -0.05){
+            input = 0;
+        }
+        if (input - lastSpeed > 0){
+            newSpeed = lastSpeed + maxChange;
+            lastSpeed = newSpeed;
             return newSpeed;
         }
         else {
-            newSpeed = lastInput - maxChange;
-            lastInput = newSpeed;
+            newSpeed = lastSpeed - maxChange;
+            lastSpeed = newSpeed;
             return newSpeed;
         }
     }

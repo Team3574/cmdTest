@@ -27,6 +27,7 @@ public abstract class CommandBase extends Command {
     public static MotorTest theMotorTest = new MotorTest();
     public static Log theLog = new Log();
     public static Pneumatics thePneumatics=new Pneumatics();
+   
     
     public static void init() {
         // This MUST be here. If the OI creates Commands (which it very likely

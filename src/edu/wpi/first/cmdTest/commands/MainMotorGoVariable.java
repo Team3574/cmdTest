@@ -28,6 +28,7 @@ public class MainMotorGoVariable extends CommandBase {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
         double speed = testScaler.scale(oi.topUpDown());
+        //double speed = oi.topUpDown();
         theMainMotor.goVariable(speed);
         SmartDashboard.putNumber("Joystick",speed);
     }

@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.cmdTest.commands.CommandBase;
+import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DriverStationLCD;
 import edu.wpi.first.wpilibj.Watchdog;
 
@@ -22,6 +23,7 @@ import edu.wpi.first.wpilibj.Watchdog;
  * directory.
  */
 public class cmdTestBot extends IterativeRobot {
+    public Compressor comp = new Compressor(RobotMap.compressorSaftyPort, RobotMap.compressorPort);
 
     Command autonomousCommand;
 
@@ -61,8 +63,10 @@ public class cmdTestBot extends IterativeRobot {
 
         Watchdog.getInstance().setEnabled(true);
         Watchdog.getInstance().setExpiration(500);
+        Scheduler s = Scheduler.getInstance();
+        
 
-
+        
     }
 
     /**
@@ -70,8 +74,9 @@ public class cmdTestBot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
-
-
+        System.out.println("PressureSwitch " + comp.getPressureSwitchValue());
+        comp.start();
+        
 //        try {
 //            wait(20);
 //        } catch (InterruptedException ex) {

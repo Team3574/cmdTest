@@ -6,6 +6,7 @@ package edu.wpi.first.cmdTest.subsystems;
 
 import edu.wpi.first.cmdTest.RobotMap;
 import edu.wpi.first.cmdTest.commands.MainMotorDoNothing;
+import edu.wpi.first.cmdTest.commands.MainMotorGoVariable;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -24,7 +25,7 @@ public class MainMotor extends Subsystem {
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
-        setDefaultCommand(new MainMotorDoNothing());
+        setDefaultCommand(new MainMotorGoVariable());
     }
     
     public MainMotor(){
