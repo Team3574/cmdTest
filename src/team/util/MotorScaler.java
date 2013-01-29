@@ -22,7 +22,7 @@ public class MotorScaler {
     
     public double scale(double input){
         double newSpeed = 0;
-        if (input < 0.05 && input > -0.05){
+        if (input < 0.1 && input > -0.1){
             input = 0;
         }
         if (input - lastSpeed > 0){
@@ -30,10 +30,14 @@ public class MotorScaler {
             lastSpeed = newSpeed;
             return newSpeed;
         }
-        else {
+        else if (input - lastSpeed < 0){
             newSpeed = lastSpeed - maxChange;
             lastSpeed = newSpeed;
             return newSpeed;
+        }
+        else { //if we got here input - lastSpeed must be 0.
+            return newSpeed;
+
         }
     }
 }

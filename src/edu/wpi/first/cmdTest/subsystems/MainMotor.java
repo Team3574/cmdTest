@@ -10,6 +10,7 @@ import edu.wpi.first.cmdTest.commands.MainMotorGoVariable;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -21,7 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 public class MainMotor extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
-    Victor mainMotor = new Victor(RobotMap.motorJag); 
+    Talon mainMotor = new Talon(RobotMap.motorTalonMain); 
 
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

@@ -11,7 +11,7 @@ public class RobotMap {
     // following variables to use with your drivetrain subsystem.
     
     // pwm outputs
-    public static final int motorJag = 1;
+    public static final int motorTalonMain = 1;
     public static final int motorSec = 3;
     public static final int pidMotor = 2;
     public static final int pidSpeed = 4;

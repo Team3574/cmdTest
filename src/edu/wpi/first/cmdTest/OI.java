@@ -24,11 +24,14 @@ public class OI {
     // You create one by telling it which joystick it's on and which button
     // number it is.
     Joystick stick = new Joystick(1);
+    Joystick stick2 = new Joystick (2);
     
     Button b1 = new JoystickButton(stick, 1);
     Button b2 = new JoystickButton(stick, 2);
     Button b3 = new JoystickButton(stick, 3);
     Button b4 = new JoystickButton(stick, 4);
+    
+    
     
     DriverStation dS;
     // Button button = new JoystickButton(stick, buttonNumber);
@@ -65,10 +68,15 @@ public class OI {
         dS = DriverStation.getInstance();
         
     }
-    public double topUpDown () {
-        return stick.getRawAxis(2);
-        
+    
+    public double topUpDown1 () {
+        return stick.getRawAxis(2);   
     }
+    
+    public double topUpDown2 () {
+        return stick2.getRawAxis(2);
+    }
+    
     public double analogDS1 () {
         return dS.getAnalogIn(1);
     }
