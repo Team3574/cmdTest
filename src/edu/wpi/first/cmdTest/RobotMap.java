@@ -30,11 +30,14 @@ public class RobotMap {
     public static final int potPort = 1;
     
     // digital IO
-    public static final int compressorSaftyPort = 8; 
+    public static final int compressorSaftyPort = 9; 
     public static final int encoderSpeedFirstPort = 1;//incoders take two ports
-   
-    public static final int proximitySensorPort = 3;
-    public static final int buttonPort = 4;
+    public static final int encoderTestMainPort = 5;
+    public static final int encoderMagneticMainPort = 3;
+
+    
+    public static final int proximitySensorPort = 7;
+    public static final int buttonPort = 8;
     
     // relay
     public static final int compressorPort = 1;

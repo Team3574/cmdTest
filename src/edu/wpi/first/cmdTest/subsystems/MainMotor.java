@@ -7,6 +7,7 @@ package edu.wpi.first.cmdTest.subsystems;
 import edu.wpi.first.cmdTest.RobotMap;
 import edu.wpi.first.cmdTest.commands.MainMotorDoNothing;
 import edu.wpi.first.cmdTest.commands.MainMotorGoVariable;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.Victor;
 import edu.wpi.first.wpilibj.Jaguar;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -23,7 +24,9 @@ public class MainMotor extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
     Talon mainMotor = new Talon(RobotMap.motorTalonMain); 
-
+    public Encoder mainEncoder = new Encoder(RobotMap.encoderTestMainPort,RobotMap.encoderTestMainPort+1); 
+    public Encoder magneticEncoder = new Encoder(RobotMap.encoderMagneticMainPort,RobotMap.encoderMagneticMainPort+1);  
+    
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         setDefaultCommand(new MainMotorGoVariable());
@@ -31,6 +34,8 @@ public class MainMotor extends Subsystem {
     
     public MainMotor(){
         super("MainMotor");
+        mainEncoder.start();
+        magneticEncoder.start();
     }
     
     public void go(){

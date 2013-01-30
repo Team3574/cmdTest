@@ -12,6 +12,8 @@ import team.util.MotorScaler;
  * @author team3574
  */
 public class MainMotorGoVariable extends CommandBase {
+    int lastMagEncoderValue = 0;
+    int loopCounter = 0;
     
     public static MotorScaler testScaler = new MotorScaler();
     
@@ -27,10 +29,22 @@ public class MainMotorGoVariable extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        double speed = testScaler.scale(oi.topUpDown2());
+        double speed = testScaler.scale(oi.topUpDown1());
         //double speed = oi.topUpDown();
         theMainMotor.goVariable(speed);
-        SmartDashboard.putNumber("Joystick",speed);
+        if (this.loopCounter > 20){
+            loopCounter = 0;
+            int current = theMainMotor.magneticEncoder.get();
+            SmartDashboard.putNumber("MagneticEncoder",current - lastMagEncoderValue);
+            lastMagEncoderValue = current;
+        }
+        else{
+            loopCounter++;
+        }
+        SmartDashboard.putNumber("Joystick",oi.topUpDown1());
+        SmartDashboard.putNumber("MainEncoder",theMainMotor.mainEncoder.get());
+       
+        
     }
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
